@@ -20,7 +20,7 @@ int main()
     printf("%s\n", string);
 
     printf("%zu\n", strlen(test_string)); // gets length, also deletes the null terminating character
-    // ALSO remember that sizeof will return SIZE in BYTES (%zu), NOT the actual length.
+    // remember that sizeof will return SIZE in BYTES (%zu), NOT the actual length.
     char j[20] = "hello"; // problem wit dis: char must be always be able to strore both of these strings combined
     char r[] = "world";
 
