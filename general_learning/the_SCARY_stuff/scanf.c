@@ -17,7 +17,7 @@ int main()
     // in the char strings, BYPASSING its [4] bytes limiter, where the last byte is the null terminator
 
     // in this case because we dont want buffer overflow we limit how much the use can pass
-    scanf("%3s\n", string);
+    scanf("%3s", string);
     // checking
     int size = sizeof(string) / sizeof(string[0]);
     printf("%d size--- \n ", size); // correct, 4 bytes because of \0 being the last one. we got 3 things we can pass.
