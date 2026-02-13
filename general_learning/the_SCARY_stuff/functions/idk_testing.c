@@ -16,6 +16,7 @@
 // // very weird format of doing this, but its better i think
 
 int max_num(int *arr, int length);
+int sum(int *arr, int length);
 
 int main()
 {
@@ -23,9 +24,34 @@ int main()
     int length_one = sizeof(array) / sizeof(array[0]);
 
     int res = max_num(array, length_one);
+
+    printf("%d", res);
+    int d = sum(array, length_one);
+    for (int i = 0; i < length_one; i++)
+    {
+        printf("%d\n", array[i]);
+    }
 }
 
 int max_num(int *arr, int length)
 {
-    i
+    int max = *arr;
+
+    for (int i = 0; i < length; i++)
+    {
+        if (*(arr + i) > max)
+        {
+            max = *(arr + i);
+        }
+    }
+    return max;
+}
+
+int sum(int *arr, int length)
+{
+    for (int i = 0; i < length; i++)
+    {
+        *arr += 2;
+        arr++;
+    }
 }
