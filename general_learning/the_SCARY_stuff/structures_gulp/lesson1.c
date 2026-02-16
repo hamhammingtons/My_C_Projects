@@ -25,4 +25,16 @@ int main()
 
     // we can also make a copy (not a pointer) as a struct
     struct lesson1 Copy_of_original = First_Struct;
+
+    /*NEW
+    also you can use strcut pointer so you dont have to copy the data
+    ( for exampel lets say you have 100 ints in a list and you have to change a value)
+    a pointer is 8 bits and it is extreemly fast for changing values */
+
+    struct lesson1 *pointer = &First_Struct;
+    // now it points to the first element of first_struct
+    // we can change the value
+    // BAD: (*ptr).integer =5
+    // instead do
+    pointer->integer = 5;
 }
