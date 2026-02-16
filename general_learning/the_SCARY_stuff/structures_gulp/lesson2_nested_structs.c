@@ -22,7 +22,8 @@ int main()
     printf("Car: %s (%d)\n", car1.brand, car1.year);
     printf("Owner: %s %s\n", car1.owner.firstName, car1.owner.lastName);
 
-    return 0;
+    struct Owner *ptr = &person;
+    printf("RANDOM: %s", ptr->firstName);
 
-    struct Car *pointer = &car1;
+    return 0;
 }
