@@ -52,6 +52,6 @@ it can only be accessed with pointers using either malloc or calloc
 
 GOTO C:\Users\Admin\OneDrive\Изображения\Снимки экрана\malloc_help.png OR 'malloc_help.png' for short to get more info
 */
-main()
+int main()
 {
 }
