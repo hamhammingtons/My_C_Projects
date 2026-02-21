@@ -33,6 +33,11 @@ int check_if_brainfuck_code(char code[], int size)
 
     // outer loop is the code
     // inner is the ALLOWED_FUNC
+
+    /*
+    NOTE: when youre doing a for loop search: we use break; to stop the inner if what we need is found so the outer can continue
+    to check if a variable actually existed use a variable which will override itself each time the loop runs
+    if not variable then return 1*/
     for (int i = 0; i < size; i++)
     {
         int found = 0;
