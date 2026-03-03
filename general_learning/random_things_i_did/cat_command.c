@@ -1,11 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
-typedef struct command_check_fill_roadmap
+enum FLAG_STR_TO_NUM
+{
+    NUMERATE_M = 1
+};
+typedef struct command_check_fill_roadmap // we use * to mention that it is a string
 {
     char *comm_name;
-    char *flag;
+    char flag;
     char *arg;
 } command_t;
 
@@ -23,8 +26,6 @@ void cat(command_t *user_input)
         return;
     }
 
-    // not my logic
-
     fseek(f_pointer, 0, SEEK_END);
     long sizeof_file = ftell(f_pointer); // tells us bytes
     // fseek -> the end of the file; ftell -> tell where we are right now (line for example)
@@ -36,17 +37,23 @@ void cat(command_t *user_input)
         fclose(f_pointer);
         return;
     }
-
     size_t read_size = fread(content, 1, sizeof_file, f_pointer);
     content[read_size] = '\0';
 
-    // not my logic
+    switch (user_input->flag)
+    {
+    case NUMERATE_M: // TODO: do this
+        /* code */
+        break;
 
+    default:
+        break;
+    }
     printf("%s", content);
 
     free(content);
-    f_pointer = NULL;
     fclose(f_pointer);
+    f_pointer = NULL;
 }
 
 permitted_commands allowed_functions[] = {cat};
