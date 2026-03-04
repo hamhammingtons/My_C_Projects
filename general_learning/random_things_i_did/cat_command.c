@@ -98,7 +98,7 @@ FLAG_STR_TO_NUM handle_flag_to_num(char *flag)
 {
     if (flag == NULL)
         return NONE_FLAG;
-    else if (strcmp(flag, "-n") == 0) // 0 is True if identical
+    else if (strcmp(flag, "-n") == 0) // 0 == True if identical
     {
         return NUMERATE_M;
     }
