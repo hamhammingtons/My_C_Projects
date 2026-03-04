@@ -31,10 +31,18 @@ int main()
 
 void cat(command_t *user_input)
 {
-    FLAG_STR_TO_NUM flag_numeric = handle_flag_to_num(user_input->flag); // fetch for switch statement
-
-    if (!user_input->arg)
+    if (user_input == NULL)
+    {
+        printf("struct wasnt defined");
         return;
+    }
+    else if (!user_input->comm_name || !user_input->arg)
+    {
+        printf("arg or comm_name wasnt defined");
+        return;
+    }
+
+    FLAG_STR_TO_NUM flag_numeric = handle_flag_to_num(user_input->flag); // fetch for switch statement
 
     FILE *f_pointer = fopen(user_input->arg, "rb");
     if (!f_pointer)
@@ -64,8 +72,8 @@ void cat(command_t *user_input)
     switch (flag_numeric)
     {
     case NUMERATE_M:
-        char current_line = 1;
-        char is_start_of_line = 1;
+        unsigned current_line = 1; // use unsigned in case of over 127 lines
+        unsigned is_start_of_line = 1;
 
         for (int i = 0; i < read_size; i++)
         {
@@ -81,7 +89,6 @@ void cat(command_t *user_input)
                 is_start_of_line = 1;
             }
         }
-
         break;
 
     default:
@@ -98,8 +105,9 @@ FLAG_STR_TO_NUM handle_flag_to_num(char *flag)
 {
     if (flag == NULL)
         return NONE_FLAG;
-    else if (strcmp(flag, "-n") == 0) // 0 == True if identical
+    else if (strcmp(flag, "-n") == 0) // 0 is  if identical
     {
         return NUMERATE_M;
     }
+    return NONE_FLAG;
 }
