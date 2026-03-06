@@ -1,0 +1,95 @@
+assembly is kind of simple but not simple at the same time 
+in general_learning\assembly fundementals\main_diagram.png we can see that there are 3 things in this diagram 
+
+the Input-Output Devices; memory; and of course the cpu
+
+Note: 'Input-Output = I/O'. 
+I/O devices amounts are arbiturary. 
+-----------------------------------------
+How does the CPU communicate with the other components of the circuit? 
+
+There are 3 things called 'busses'. they handle the communcation 
+
+Control bus;
+Control bus is made just for synchronization within the devices that are attached to the bus.
+Example: where are we writing, reading, interacting at the given time 
+
+Adress bus; 
+Adress bus is made for holding the 'adress' of instructions and 'data' that ARE BEING TRANSFERED between CPU and memory
+or any other devices.
+Think of it like a void pointer: it just points to 'different places' where things ARE GOING TO BE MOVED TO 
+Example: tells us where were working at in the hardware scheme
+
+Data bus;
+Data bus handles the 'transfer of instructions' between the data of: cpu, memory, i/o devices
+But usually i/o devices exist on a seperate bus called the i/o bus 
+-----------
+CPU components:
+    High frequency clock
+    Control unit
+    ALU - arichmetic logic unit 
+    [Memory] Registers - storage location {usually refered as Memory Registers}
+
+ALU is the part of the cpu that carries LOGIC and ARICHMETIC:
+    Does operations like add, subtract, and, or, not 
+    'Special part of the cpu that does the calculations'
+
+Memory Registers are the type of 'computer memory' that are very close to the cpu:
+    Fastest possible memory for us to access 
+    'We will always try to store things in the memory registers before we store them in external things [RAM and etc]'
+
+High frequency clock:
+    Now this is where it gets interesting. So what is even frequency first?
+    Frequency literally means the number of times something happens over a period of time.  
+    Formula = f = 1/T
+        Where T = time period; f = frequency; the number 1--IS = 1 cycle
+        Unit of measurement = Hertz
+
+        The cycle number isnt actually that specific, lets say 
+        A guy types 10 words each 2 seconds 
+        f = 10/2 = 5 Hertz
+        BUT if were working with physics it is recomended to use 1 cycle. 
+    
+    Now about the clock signal diagram in general_learning\assembly fundementals\diagram_of_clock_cycle.png
+    BUT FIRST, look at the diagram with the name of general_learning\assembly fundementals\sinewave_components.jpg
+        1. Amplitude - there are 2 types, 
+            Peak Amplitude -> difference between the max Y (like the the most-top curved parabola looking thing)
+                           to the x axis start (+)
+                           for example 
+                              _______
+                            /  ^    | \      the '| part is the actual pointing from y to the x axis start 
+                           / max y  |  \          |'
+        x axis start ->  -------------------
+        
+        
+        Peak-to-peak Amplitude is from the max point Y of the sine wave to the lowest point (can be -y) of the sin wave (below)
+-max(y)->_____
+        /  |  \                 the '|  part is the pointing arrow to max y to lowest y
+       /   |   \                     |'
+    ----------------------
+           |     \    /
+           |      \  /
+-lowest(y)-|       \/ 
+
+        2. The highest part of the wave is called the crest
+        3. The lowest part is called the trough
+        4. the period is the horizontal distance over which one complete cycle of the sine graph is completed 
+           also can be called a wavelength. it is refered as 'λ' [lambda]
+
+        PERIOD 
+      |----------|  its like when 1 cycle (like when it goes from up->down->up again)
+        \      /
+         \    /
+          \  /
+           **
+        
+        5. frequency of a sine wave is... frequency, which T is time, the frequency is w/(2π). 
+           where w is angular frequency. It tells you how many radians the wave covers per second.
+           '"Rotational" speed of the wave.'
+
+        6. wavenumber is how much waves are in the sine wave
+           Formula k = 2pi/lambda[wavelength] 
+            OR
+            if we have 4 cycles, and the wavelength is 0.5 then 4 * 0.5 = 2 
+
+            Need to learn: Phase Angular Frequency
