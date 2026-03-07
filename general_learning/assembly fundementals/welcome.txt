@@ -72,10 +72,9 @@ High frequency clock:
 -lowest(y)-|       \/ 
 
         2. The highest part of the wave is called the crest
-        3. The lowest part is called the trough
+        3. The lowest part is called the troughs
         4. the period is the horizontal distance over which one complete cycle of the sine graph is completed 
            also can be called a wavelength. it is refered as 'λ' [lambda]
-
         PERIOD 
       |----------|  its like when 1 cycle (like when it goes from up->down->up again)
         \      /
@@ -84,6 +83,8 @@ High frequency clock:
            **
         
         5. frequency of a sine wave is... frequency, which T is time, the frequency is w/(2π). 
+                Formula on top: 'tells you how many radians the "clock" spins every second.'
+           or again, f = 1/t
            where w is angular frequency. It tells you how many radians the wave covers per second.
            '"Rotational" speed of the wave.'
 
@@ -92,4 +93,90 @@ High frequency clock:
             OR
             if we have 4 cycles, and the wavelength is 0.5 then 4 * 0.5 = 2 
 
-            Need to learn: Phase Angular Frequency
+            
+        7. a phase is the thing that tells you where the wave starts at t=0 (time = 0)
+            so for example if you shift the wave left or right you are chaning the phase    
+
+        short but simple:
+
+        - Frequency (f): How often a cycle repeats over time (f = 1/T). Measured in Hertz (Hz).
+
+        - Amplitude: The strength or voltage level.
+            - Peak Amplitude: Distance from the center (X-axis) to the top (Crest).
+            - Peak-to-Peak: Distance from the highest point (Crest) to the lowest (Trough).
+        
+        - Period (T): The horizontal TIME of 1 complete cycle. Measured IN SECONDS. <---   
+            'how much it takes for 1 cycle to pass'
+        - wavelength(lambda): The spatial length of 1 wave cycle. Measured IN METERS <----
+
+        - 'Angular' Frequency (w): The "rotational speed" of the wave in radians per second (w = 2* 'pi' *f).
+
+        - Wavenumber (k): Represents the number of waves over a distance (k = 2*pi/lambda).
+
+        - Phase (phi): Determines where the wave starts at t=0. Shifting the wave left or right changes its phase, 
+            which is vital for syncing different hardware parts.
+
+        STARTING POINTS FOR USING ANY FORMULA:
+        1. Amplitude (A)
+        2. Period (T)
+        3. Frequency (f)
+        4. Phase
+
+        Examples
+        whenever youre working with symbols and you need to do something that calculates actual stuff 
+        Symbols = simple [LINEAR]
+        Math symbols = symbols -> math [ANGULAR] 
+
+        so for example 
+        Frequency = f but in math -> Angular Frequency (w) -> 2'pi'f 
+        wavelength = w but in math -> Wavenumber (k) -> 2'pi' / wavelength[lambda]
+
+        speed = 'u' from formula w = u/f -> u = w*f; in math -> Wave Velocity 'u' -> u = angular frequency / wavenumber
+
+        \0 of all simple to math:
+        
+        f = how often a cycle repeats over time [1/T] (Hertz)
+            linear formula: f = 1/T
+            Angular formula: ω = 2πf (rotational speed in radians/sec)
+            \
+            Angular Callname: Angular frequency
+
+        A = Amplitude: Distance from the center (X-axis) to the top (Crest)
+            linear formula: A (peak height)
+            Angular formula: A * sin(...) (multiplies inside sine function)
+            \
+            Angular Callname: Angular Amplitude
+
+        T = period = Time of 1 complete cycle [seconds]
+            linear formula: T = 1/f
+            Angular formula: T = 2π/ω (time per full rotation)
+            \
+            Angular Callname = Time component
+
+        lambda = wavelength - length of 1 wave cycle [meters]
+            linear formula: λ = u/f (distance per cycle)
+            Angular formula: k = 2π/λ (radians per meter spatial density)
+            \
+            Angular Callname = Wavenumber
+
+        u = wave speed - The distance the wave travels per unit of time
+            linear formula: u = f * λ
+            Angular formula: u = ω/k (radians cancel out)
+
+        phi = phase = Determines where the wave starts at t = 0
+            linear formula: φ (start offset in cycles)
+            Angular formula: sin(k*x - ω*t + φ) (full phase argument)
+
+        Why do we even need Linear and Angular?
+        Linear = Counting full laps (for humans).
+        Angular = Calculating the exact angle/position on the lap (for calculations). [usually Radians].
+
+        So linear is all about simplicity. Angular is about the numbers. 
+        Example being:
+        The CPU does 10 cycles per second.
+            f = 10 Hertz
+        What total distance has your signal passed? (specific for calculations)
+            angular'f'[w] = 2 * pi * f = (2*10) * pi = 20pi = 62.8 radians
+        
+        Then, if youre being asked for example 'what resistance on the data bus will you have in exactly 0.05 seconds' then 
+            voltage = A * sin(w * t) = A * sin(62.8 * 0.05)  
