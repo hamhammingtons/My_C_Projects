@@ -4,8 +4,7 @@ int f()
 #include <stdio.h>
 }
 int main()
-{
-    int myInt;
+{    int myInt;
     float myFloat;
     double myDouble;
     char myChar;
