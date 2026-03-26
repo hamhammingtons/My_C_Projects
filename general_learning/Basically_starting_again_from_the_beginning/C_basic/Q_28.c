@@ -1,34 +1,38 @@
 #include <stdio.h>
-int main() {
-    float numbers[5], total=0, avg; // Declare an array to store 5 numbers, and variables for total and average
-    int j, pctr=0; // Declare variables for loop counter and positive count
 
-    // Prompt user for five numbers and store them in the array
-    printf("\nInput the first number: "); 
-    scanf("%f", &numbers[0]);
-    printf("\nInput the second number: "); 
-    scanf("%f", &numbers[1]);
-    printf("\nInput the third number: "); 
-    scanf("%f", &numbers[2]);
-    printf("\nInput the fourth number: "); 
-    scanf("%f", &numbers[3]);
-    printf("\nInput the fifth number: "); 
-    scanf("%f", &numbers[4]);
+int main()
+{
+    int list[5];
 
-    for(j = 0; j < 5; j++) {
-        if(numbers[j] > 0) // Check if the number is positive
+    for (int i = 0; i < 5; i++)
+    {
+        if (scanf("%d", &list[i]) == 1)
         {
-            pctr++; // Increment positive count
-            total += numbers[j]; // Add positive number to total
-        }   
+            printf("success\n");
+        }
+        else
+        {
+            printf("err\n");
+            return 1;
+        }
     }
 
-    avg = total/pctr; // Calculate average of positive numbers
+    int xi = 0; // make sure to declare vairables with a 0 if youre going to use them like a 0
+    int ni = 0; // otherwise they will become garbage. i couldnt solve i came across this, i was using it undeclared.
 
-    // Print the counts of positive numbers and the average
-    printf("\nNumber of positive numbers: %d", pctr);
-    printf("\nAverage value of the said positive numbers: %.2f", avg);
-    printf("\n");
+    for (int i = 0; i < 5; i++)
+    {
+        if (list[i] > 0)
+        {
+            ni++;
+            xi += list[i];
+        }
+        else
+        {
+            ni--;
+        }
+    }
 
-    return 0;
+    float avr = (float)xi / ni;
+    printf("%2f", avr);
 }
