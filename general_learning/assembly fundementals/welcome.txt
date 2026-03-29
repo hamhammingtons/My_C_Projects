@@ -180,3 +180,37 @@ High frequency clock:
         
         Then, if youre being asked for example 'what resistance on the data bus will you have in exactly 0.05 seconds' then 
             voltage = A * sin(w * t) = A * sin(62.8 * 0.05)  
+
+^^^^ total yap, sine waves arent required that much but its good anyways 
+
+So, about the CPU again, the clocks purpose is just to synchronize and complete pre-defined set of 
+steps to execute an instruction 
+
+Most of the CPUs we have today follow this:
+    1. Fetch instruction from queue 
+    2. Decode it -> check for operands
+        operands are basically like parameters, example: add(2,3) -> 2 and 3 are operands here
+    2.1. If there are operands, fetch them from memory/registers
+    3. Execute the instruction and update status flags
+        wont get too deep into the status flags: theyre like flags which tell us about the output
+
+How does the CPU read from memory?
+
+it follow these steps: 
+    1. Place the adress of the value you want to read into the adress bus
+    2. Change the processors RD pin (assert pin)
+        Basically the RD pin acts like a gate between adress of memory(given by the cpu) -> memory 
+            and returns some kind of data from that memory adress via the adress bus.
+    3. Wait for 1 clock cycle for memory to respond
+    4. Copy the data from the memory bus to the destination
+
+Overall: 1 step of these steps takes 1 clock cycle. (about 4 cycles because 4x1=4 every step)
+The CPU Registers can do this in 1 clock cycle.  
+
+Because we dont want 4 clock cycles we use somehting called Cashing 
+We use it when we know that its going to be consistently read/written 
+
+Theres 2 types of caching 
+    Level 1: Stored on the CPU
+    Level 2: Stored outside(?) and accesed by high-speed data bus
+
